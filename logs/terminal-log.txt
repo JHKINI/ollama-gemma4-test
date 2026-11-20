@@ -1,0 +1,91 @@
+Microsoft Windows [Version 10.0.26200.9974]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\AISW_203_115>docker run -d -it --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+Unable to find image 'ollama/ollama:latest' locally
+latest: Pulling from ollama/ollama
+bcd29a192d4b: Pull complete
+44e04c92ea2a: Pull complete
+7a48b8f0e5c7: Pull complete
+0f9ace102f52: Pull complete
+Digest: sha256:910d0d8107b538fb0894e63163eb195de0cc7aefcbc666dc62d3b18f71124592
+Status: Downloaded newer image for ollama/ollama:latest
+e12d1cbab2f0c262d1c40dfaff5c56cac10fd5467edc6e8d377e6bbd4d67a9a7
+
+C:\Users\AISW_203_115>docker exec -it ollama/bin/bash
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug ollama/bin/bash
+    Learn more at https://docs.docker.com/go/debug-cli/
+docker: 'docker exec' requires at least 2 arguments
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+See 'docker exec --help' for more information
+
+C:\Users\AISW_203_115>docker exec -it ollama /bin/bash
+root@e12d1cbab2f0:/# ollama pull gemma4:e2b
+pulling manifest
+pulling 6dd7ac24fe13: 100% ▕█████████████████████████████████████████████████████████ ▏ 3.5 GB/3.5 GB  3.3 MB/s      0s
+pulling 7ba3bbacdf1b: 100% ▕█████████████████████████████████████████████████████████ ▏ 986 MB/986 MB   14 MB/s      0s
+pulling dd57b3b7308f:  99% ▕█████████████████████████████████████████████████████████ ▏  97 MB/ 97 MB   14 MB/s      0s
+pulling 3ff8a734c316: 100% ▕██████████████████████████████████████████████████████████▏  241 B
+verifying sha256 digest
+writing manifest
+success
+root@e12d1cbab2f0:/# ollama run gemma4:e2b
+>>> 안녕
+Thinking...
+Thinking Process:
+
+1.  **Analyze the input:** The user said "안녕" (Annyeong), which means "Hello" or "Hi" in Korean.
+2.  **Determine the context:** This is a standard, friendly greeting.
+3.  **Formulate an appropriate response:**
+    *   Acknowledge the greeting.
+    *   Return the greeting.
+    *   (Optional but good practice) Ask how the user is doing or invite them to state their purpose.
+4.  **Draft the response in Korean:**
+    *   Greeting: "안녕하세요" (Annyeonghaseyo) - Formal and polite.
+    *   Response: "안녕하세요! 만나서 반갑습니다." (Hello! Nice to meet you.) or simply "안녕하세요!"
+    *   Inquiry: "저는 어떻게 도와드릴까요?" (How may I help you?)
+5.  **Select the best, natural response:** A friendly, simple acknowledgment is usually best.
+
+6.  **Final Output Generation.** (The resulting output is a standard, polite welcome.)
+...done thinking.
+
+안녕하세요! 만나서 반갑습니다. 😊
+
+저는 사용자님을 어떻게 도와드릴까요?
+
+>>> 텍스트: 휴가는 괜찮을 것 같아요.
+... 감정:
+Thinking...
+Thinking Process:
+
+1.  **Analyze the Request:** The user provided a text snippet ("휴가는 괜찮을 것 같아요.") and asked for the
+corresponding "감정" (emotion).
+2.  **Analyze the Text:** "휴가는 괜찮을 것 같아요." (Huyaga-neun gwaenchanh-eul geot gatayo.)
+    *   Literal meaning: "Vacation seems okay/fine." or "I think the vacation will be alright."
+    *   Contextual implication: This is a statement about future plans or a reassurance/opinion regarding a
+leave/vacation.
+3.  **Determine the Tone/Sentiment:**
+    *   The use of "~것 같아요" (seems like/I think) indicates tentative language, consideration, or mild
+uncertainty, but ultimately a hopeful or accepting sentiment.
+    *   It is not angry, sad, excited, or frustrated.
+4.  **Identify Potential Emotions (Korean Context):**
+    *   *Positive/Accepting:* 안심 (Relief/Reassurance), 긍정 (Positive), 평온 (Calm/Peaceful).
+    *   *Neutral/Considerate:* 신중함 (Caution/Deliberation), 담담함 (Composure).
+5.  **Select the Most Appropriate Emotion(s):** The statement is primarily one of reassurance and acceptance.
+
+6.  **Formulate the Output:** Present the most fitting emotion(s). (Self-Correction: Since it's a statement about
+a plan, 'Calmness' or 'Relief' are strong candidates.)
+...done thinking.
+
+**긍정적, 안심, 평온함**
+
+**설명:**
+
+이 문장은 휴가 계획에 대해 **긍정적으로 생각하고 있으며, 걱정 없이 괜찮을 것이라는 안도감**을 표현합니다. 현재 상황
+에 대해 안정감을 느끼고 있음을 나타냅니다.
+
+>>> Send a message (/? for help)
